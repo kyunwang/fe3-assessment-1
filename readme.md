@@ -1,14 +1,14 @@
 # A mini interactive barchart 
 A barchart with the purpose of experimenting and getting familiar with the D3.js API.
 
-[!["Preview image of the barchart"]][linktobeadded]
+!["Image of the barchart"](https://github.com/kyunwang/fe3-assessment-1/tree/master/images/preview.png)
 
 ## TOC
 - [Background](#background)
 - [Goals](#goals)
 - [Data](#data)
 - [Features](#features)
-- [How to use](#how-to-use)
+- [Interactive features](#interactive-features)
 - [TODO](#todo)
 - [What was hard](#what-was-hard)
 - [License](#license)
@@ -99,8 +99,32 @@ The following D3 API's were used:
 	- d3.zoom -- create a zoom behavior
 	- zoom.scaleExtent -- set the allowed scale range
 
-## How to use
+## Interactive features
+These features have been added:
 
+### Sorting
+A sorting function has been added. The already rendered data will be
+taken and sorted. The chart will be animated when the sorting has been done.
+
+You can sort by:
+- A to Z
+- Z to A
+- High to Low
+- Low to High
+
+### Dragging
+It is possible to drag a bar around on the screen, within the svg constrains.
+When the bar has been released it will return to it's original position
+which is also animated.
+
+### Zoom
+The chart can be zoomed in and zoomed out.
+You can do so by using:
+- Your scrollwheel
+- Swiping up and down using two fingers on yout touchpad (macbook)
+- Pinching (not tested)(mobile)
+
+The D3 zooming function also provides panning with the zoom function.
 
 ## TODO
 - [ ] Host to Github Pages

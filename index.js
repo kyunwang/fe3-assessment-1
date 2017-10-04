@@ -17,8 +17,8 @@ const colorScale = d3.scaleLinear()
 	.range([d3.rgb('#007aff'), d3.rgb('#fff500')]);
 
 // Global 'controls' to align the chart
-const translateY = 50;
-const translateX = 100;
+const translateY = 25;
+const translateX = 75;
 
 /*
 =================

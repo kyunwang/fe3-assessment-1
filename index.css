@@ -1,11 +1,70 @@
-html {}
+html {
+	font-family: "open sans", helvetica, "hack", sans-serif;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+section:nth-of-type(1) {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0.5em 0em;
+}
+
+section:nth-of-type(1) b {
+	width: 10%;
+}
+
+.btn {
+	width: 20%;
+	height: 3em;
+	background: #fff;
+	border: 1px solid #3a3a3a;
+	border-radius: 2px;
+}
+
+@media (max-width: 30em) {
+	section:nth-of-type(1) {
+		flex-direction: column;
+	}
+	section:nth-of-type(1) b,
+	.btn {
+		width: 100%;
+		margin-top: 1.5em;
+		text-align: center;
+	}
+}
+
+@media (min-width: 40em) {
+	section:nth-of-type(1) {
+		justify-content: flex-start;
+	}
+	
+	section:nth-of-type(1) b,
+	.btn {
+		max-width: 15em;
+		margin-right: 1.5em;
+	}
+}
+
+p.low-presence {
+	font-size: .7em;
+	font-style: italic;
+	text-align: center;
+	color: #9f9f9f
+}
+
+/*
+=================
+===
+=== Svg styling
+===
+=================
+*/
 
 
 svg {
-	border: 1px solid #000;
-	height: 90vh;
-	/* width: 90vw; */
-}
-
-.bar {
-}
+	width: 100%;
+}			

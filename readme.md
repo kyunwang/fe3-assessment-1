@@ -100,9 +100,10 @@ The following D3 API's were used:
 
 
 ## TODO
-- [] Host to Github Pages
+- [ ] Host to Github Pages
 - [x] Make a TOC
 
+Some things I want to do:
 - [x] Sorting data
 - [ ] Filter data
 - [ ] Show info on mouse over

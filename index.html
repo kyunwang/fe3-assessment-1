@@ -9,14 +9,22 @@
 </head>
 
 <body>
-	<button class="btn-sort"  data-type="a-z">a-z</button>
-	<button class="btn-sort"  data-type="z-a">z-a</button>
-	<button class="btn-sort" data-type="h-to-l">h-to-l</button>
-	<button class="btn-sort" data-type="l-to-h">l-to-h</button>
+	<h2>A simple barchart</h2>
 
-	<!-- <button class="btn-filter">filter</button> -->
+	<section>
+			<b>Sort by:</b>
+			<button class="btn btn-sort"  data-type="a-z">A to Z</button>
+			<button class="btn btn-sort"  data-type="z-a">Z to A</button>
+			<button class="btn btn-sort" data-type="h-to-l">High to Low</button>
+			<button class="btn btn-sort" data-type="l-to-h">Low to High</button>
+
+	</section>	
+
+	<!-- <button class="btn btn-filter">filter</button> -->
 	
 	<svg id="myChart" height="500" width="1200" />
+
+	<p class="low-presence">pssst. You can drag the bars</p>
 </body>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="./index.js"></script>

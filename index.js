@@ -5,7 +5,7 @@ let firstGroup = d3.select('#myChart')
 
 // Create an ordinal band scale
 let xScale = d3.scaleBand()
-	.range([0, 800]) // Range is the size in px rounded
+	.range([0, 800]) // Range is the size in px
 	.padding(0.3);
 
 // Create a linear scale - Using rangeRound makes no difference atm

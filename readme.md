@@ -30,7 +30,7 @@ And to play around with D3.js!
 
 ## Data 
 <!-- [![A picture of the dataset]](dataPrev) -->
-# [![A picture of the dataset][dataPrev]]
+[![A picture of the dataset][dataPrev]][dataPrev]
 
 The dataset is about the amount of speakers of a certain language in the format of **TSV** A.K.A **Tab Seperated Values**.
 there are two columns in this dataset namely:

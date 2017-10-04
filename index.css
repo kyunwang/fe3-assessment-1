@@ -4,5 +4,5 @@ html {}
 svg {
 	border: 1px solid #000;
 	height: 90vh;
-	width: 90vw;
+	/* width: 90vw; */
 }

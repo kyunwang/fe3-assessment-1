@@ -1,7 +1,7 @@
 # A mini interactive barchart 
 A barchart with the purpose of experimenting and getting familiar with the D3.js API.
 
-!["Image of the barchart"](https://github.com/kyunwang/fe3-assessment-1/tree/master/images/preview.png)
+[![Image of the barchart][previewImg]][previewImg]
 
 ## TOC
 - [Background](#background)
@@ -29,7 +29,7 @@ I have tried to refrain from copy & pasting and looking up examples to initializ
 And to play around with D3.js!
 
 ## Data 
-[![A picture of the dataset][dataPrev]][dataPrev]
+[![A picture of the dataset][dataImg]][dataImg]
 
 The dataset is about the amount of speakers of a certain language in the format of **TSV** A.K.A **Tab Seperated Values**.
 there are two columns in this dataset namely:
@@ -148,4 +148,5 @@ The start was hard. I wanted to make a start without copy and pasting nor trying
 ## License
 MIT © Kang Yun Wang (Kevin Wang)
 
-[dataPrev]: https://github.com/kyunwang/fe3-assessment-1/tree/master/images/dataShot.png
+[previewImg]: https://github.com/kyunwang/fe3-assessment-1/blob/master/images/preview.png
+[dataImg]: https://github.com/kyunwang/fe3-assessment-1/blob/master/images/dataShot.png

@@ -1,20 +1,43 @@
 // Get #myChart and append a <g> with a class
-let firstGroup = d3.select('#myChart')
+const firstGroup = d3.select('#myChart')
 	.append('g')
 	.attr('class', 'firstGroup');
 
 // Create an ordinal band scale
-let xScale = d3.scaleBand()
+const xScale = d3.scaleBand()
 	.range([0, 800]) // Range is the size in px
 	.padding(0.3);
 
 // Create a linear scale - Using rangeRound makes no difference atm
-let yScale = d3.scaleLinear()
+const yScale = d3.scaleLinear()
 	.range([0, 20]);
 
-let colorScale = d3.scaleLinear()
+const colorScale = d3.scaleLinear()
 	.interpolate(d3.interpolateHcl) //Hue Chroma Luminence - Chose this because it gives a different colourscheme than rgb ^^
 	.range([d3.rgb('#007aff'), d3.rgb('#fff500')]);
+
+
+
+/*
+=================
+===
+=== Add the zoom/pan behaviour
+===
+=================
+*/
+
+// D3 provides the zooming and scaling so that we do not have to do that
+const zoomCallback = group =>
+() => group.attr('transform', d3.event.transform);
+
+// Create zoom behaviour
+const zoomBehaviour = d3.zoom()
+.scaleExtent([0, 20]) // Customise zoom behaviour (minScale, maxScale)
+.on('zoom', zoomCallback(firstGroup));
+
+// Adding the behaviour to
+d3.select('#myChart')
+.call(zoomBehaviour)
 
 
 
@@ -63,11 +86,13 @@ function renderChart(err, data) {
 			.attr('width', xScale.bandwidth())
 			.attr('height', d => 200 - yScale(d.speakers))
 			.attr('fill', d => colorScale(parseInt(d.speakers), 10))
+			// .on('mouseover', function(e) {
+				// console.log('hello');
+			// })
 			.call(d3.drag()
 				.on("start", dragStart)
 				.on("drag", dragging)
-				.on("end", dragEnd));
-
+				.on("end", dragEnd))
 
 	// What to do with unchanged data - How unchanged data should be displayed
 		// chartBars.attr('fill', 'red');
@@ -86,6 +111,17 @@ function renderChart(err, data) {
 		});
 }
 	
+
+
+/*
+=================
+===
+=== Sort function
+=== Source: https://bl.ocks.org/mbostock/3885705
+=== modified
+=================
+*/
+
 // Getting the type to sort and return the array
 function getSortType(data, type) {
 	switch (type) {
@@ -103,16 +139,6 @@ function getSortType(data, type) {
 		return;
 	}
 }
-
-
-/*
-=================
-===
-=== Sort function
-=== Source: https://bl.ocks.org/mbostock/3885705
-=== modified
-=================
-*/
 
 function sortChart(data, type) {
 	let sorting = xScale.domain(data.sort(

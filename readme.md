@@ -95,6 +95,9 @@ The following D3 API's were used:
 	- transition.delay -- specify per-element delay in milliseconds.
 - [`d3-drag`](https://github.com/d3/d3-drag)
 	- d3.drag -- create a drag behavior
+- [`d3-zoom`](https://github.com/d3/d3-zoom)
+	- d3.zoom -- create a zoom behavior
+	- zoom.scaleExtent -- set the allowed scale range
 
 ## How to use
 
@@ -108,8 +111,7 @@ Some things I want to do:
 - [ ] Filter data
 - [ ] Show info on mouse over
 - [x] Dragging the bars around
-- [ ] Panning
-- [ ] Zooming
+- [x] Zooming & Panning
 
 
 ## What was hard

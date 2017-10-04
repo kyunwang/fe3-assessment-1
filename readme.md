@@ -127,7 +127,7 @@ You can do so by using:
 The D3 zooming function also provides panning with the zoom function.
 
 ## TODO
-- [ ] Host to Github Pages
+- [x] Host to Github Pages
 - [x] Make a TOC
 
 Some things I want to do:

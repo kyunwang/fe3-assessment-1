@@ -61,7 +61,7 @@ function renderChart(err, data) {
 	// Appending the x-axis
 	firstGroup.append('g') // Set and create the x-axis at the bottom
 		.attr('transform', `translate(${translateX}, ${200 + translateY})`)
-		.attr('class', 'x axis')
+		.attr('class', 'axis axis-x')
 		.call(d3.axisBottom(xScale))
 		// .call(xAxis)
 		.selectAll("text") // Setting the labels
@@ -73,7 +73,7 @@ function renderChart(err, data) {
 		
 	// Appending the y-axis
 	firstGroup.append('g') // Set and create the y-axis on the left
-		.attr('class', 'axis')
+		.attr('class', 'axis axis-y')
 		.attr('transform', `translate(${translateX}, ${0 + translateY})`)
 		.call(d3.axisLeft(yScale));
 	

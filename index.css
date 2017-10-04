@@ -72,4 +72,8 @@ p.low-presence {
 
 svg {
 	width: 100%;
-}			
+}
+
+.axis-y path {
+	display: none;
+}

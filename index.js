@@ -16,7 +16,9 @@ const colorScale = d3.scaleLinear()
 	.interpolate(d3.interpolateHcl) //Hue Chroma Luminence - Chose this because it gives a different colourscheme than rgb ^^
 	.range([d3.rgb('#007aff'), d3.rgb('#fff500')]);
 
-
+// Global 'controls' to align the chart
+const translateY = 50;
+const translateX = 100;
 
 /*
 =================
@@ -40,7 +42,6 @@ d3.select('#myChart')
 .call(zoomBehaviour)
 
 
-
 // The function for rendering the chart
 function renderChart(err, data) {
 	// Get and set the min & max amount of speakers
@@ -59,7 +60,7 @@ function renderChart(err, data) {
 
 	// Appending the x-axis
 	firstGroup.append('g') // Set and create the x-axis at the bottom
-		.attr('transform', 'translate(100, 300)')
+		.attr('transform', `translate(${translateX}, ${200 + translateY})`)
 		.attr('class', 'x axis')
 		.call(d3.axisBottom(xScale))
 		// .call(xAxis)
@@ -73,7 +74,7 @@ function renderChart(err, data) {
 	// Appending the y-axis
 	firstGroup.append('g') // Set and create the y-axis on the left
 		.attr('class', 'axis')
-		.attr('transform', 'translate(100, 100)')
+		.attr('transform', `translate(${translateX}, ${0 + translateY})`)
 		.call(d3.axisLeft(yScale));
 	
 
@@ -81,8 +82,8 @@ function renderChart(err, data) {
 	chartBars.enter()
 		.append('rect')
 			.attr('class', 'bar')
-			.attr('x', d => xScale(d.language) + 100)
-			.attr('y', d => yScale(d.speakers) + 100)
+			.attr('x', d => xScale(d.language) + translateX)
+			.attr('y', d => yScale(d.speakers) + translateY)
 			.attr('width', xScale.bandwidth())
 			.attr('height', d => 200 - yScale(d.speakers))
 			.attr('fill', d => colorScale(parseInt(d.speakers), 10))

@@ -4,6 +4,7 @@ html {
 
 h2 {
 	font-size: 2em;
+	margin-bottom: 0;
 }
 
 section:nth-of-type(1) {
@@ -29,11 +30,15 @@ section:nth-of-type(1) b {
 	section:nth-of-type(1) {
 		flex-direction: column;
 	}
+
 	section:nth-of-type(1) b,
 	.btn {
 		width: 100%;
-		margin-top: 1.5em;
 		text-align: center;
+	}
+
+	section:nth-of-type(1) .btn {
+		margin-top: 1.5em;
 	}
 }
 

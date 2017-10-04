@@ -29,7 +29,6 @@ I have tried to refrain from copy & pasting and looking up examples to initializ
 And to play around with D3.js!
 
 ## Data 
-<!-- [![A picture of the dataset]](dataPrev) -->
 [![A picture of the dataset][dataPrev]][dataPrev]
 
 The dataset is about the amount of speakers of a certain language in the format of **TSV** A.K.A **Tab Seperated Values**.
@@ -99,22 +98,17 @@ The following D3 API's were used:
 
 ## How to use
 
-## Code explanation???
-
 
 ## TODO
 - [] Host to Github Pages
 - [x] Make a TOC
 
 - [x] Sorting data
-- [] Filter data
-- [] Show info on mouse over
+- [ ] Filter data
+- [ ] Show info on mouse over
 - [x] Dragging the bars around
-- [] Panning
-- [] Zooming
-
-- [] []()
-- [] 
+- [ ] Panning
+- [ ] Zooming
 
 
 ## What was hard

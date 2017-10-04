@@ -162,7 +162,7 @@ function dragStart(d) {
 	x = this.getAttribute('x');
 	y = this.getAttribute('y');
 
-	// Set a class to this
+	// Set a class to 'this'
 	d3.select(this)
 		.raise()
 		.classed("isDragging", true);

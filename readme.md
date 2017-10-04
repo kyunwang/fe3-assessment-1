@@ -1,13 +1,14 @@
 # A mini interactive barchart 
 A barchart with the purpose of experimenting and getting familiar with the D3.js API.
 
+!["Preview image of the barchart"](linktobeadded)
+
 ## TOC
 - [Background](#background)
 - [Goals](#goals)
 - [Data](#data)
 - [Features](#features)
 - [How to use](#how-to-use)
-- [](#)
 - [TODO](#todo)
 - [What was hard](#what-was-hard)
 - [License](#license)
@@ -28,7 +29,7 @@ I have tried to refrain from copy & pasting and looking up examples to initializ
 And to play around with D3.js!
 
 ## Data 
-!["A picture of the dataset"](linktobeset)
+!["A picture of the dataset"](dataPrev)
 
 The dataset is about the amount of speakers of a certain language in the format of **TSV** A.K.A **Tab Seperated Values**.
 there are two columns in this dataset namely:
@@ -101,10 +102,8 @@ The following D3 API's were used:
 
 
 ## TODO
-- [] [GitHub Pages](#github-pages)
-- [] Metadata -- Add a description and Url to the repo
-- [] [Workflow](#workflow)
-- [] Maybe a TOC
+- [] Host to Github Pages
+- [x] Make a TOC
 
 - [x] Sorting data
 - [] Filter data
@@ -121,9 +120,10 @@ The following D3 API's were used:
 The start was hard. I wanted to make a start without copy and pasting nor trying to look too much into examples. (I did check some examples though)
 - Understanding how to align everything
 - Some abstractions. How did I get access to this, kind of feeling.
+- Understanding the abstractness of the code of D3
 
 
 ## License
 MIT © Kang Yun Wang (Kevin Wang)
 
-[variable]: linkto
+[dataPrev]: https://github.com/kyunwang/fe3-assessment-1/tree/master/images/dataShot.png

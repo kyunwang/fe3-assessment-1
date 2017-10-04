@@ -1,7 +1,7 @@
 # A mini interactive barchart 
 A barchart with the purpose of experimenting and getting familiar with the D3.js API.
 
-!["Preview image of the barchart"](linktobeadded)
+[!["Preview image of the barchart"]][linktobeadded]
 
 ## TOC
 - [Background](#background)
@@ -29,7 +29,8 @@ I have tried to refrain from copy & pasting and looking up examples to initializ
 And to play around with D3.js!
 
 ## Data 
-!["A picture of the dataset"](dataPrev)
+<!-- [![A picture of the dataset]](dataPrev) -->
+# [![A picture of the dataset][dataPrev]]
 
 The dataset is about the amount of speakers of a certain language in the format of **TSV** A.K.A **Tab Seperated Values**.
 there are two columns in this dataset namely:

@@ -18,7 +18,7 @@ const colorScale = d3.scaleLinear()
 
 // Global 'controls' to align the chart
 const translateY = 25;
-const translateX = 75;
+const translateX = 100;
 
 /*
 =================

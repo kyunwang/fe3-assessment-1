@@ -19,6 +19,8 @@ const colorScale = d3.scaleLinear()
 // Global 'controls' to align the chart
 const translateY = 25;
 const translateX = 75;
+// Global file to get the origin coordinates to transition to in dragEnd
+let xOrigin, yOrigin
 
 /*
 =================
@@ -64,12 +66,12 @@ function renderChart(err, data) {
 		.attr('class', 'axis axis-x')
 		.call(d3.axisBottom(xScale))
 		// .call(xAxis)
-		.selectAll("text") // Setting the labels
-		.attr("y", 8)
-		.attr("x", 9)
-		.attr("dy", ".35em")
-		.attr("transform", "rotate(45)")
-		.style("text-anchor", "start");
+		.selectAll('text') // Setting the labels
+		.attr('y', 8)
+		.attr('x', 9)
+		.attr('dy', '.35em')
+		.attr('transform', 'rotate(45)')
+		.style('text-anchor', 'start');
 		
 	// Appending the y-axis
 	firstGroup.append('g') // Set and create the y-axis on the left
@@ -87,13 +89,26 @@ function renderChart(err, data) {
 			.attr('width', xScale.bandwidth())
 			.attr('height', d => 200 - yScale(d.speakers))
 			.attr('fill', d => colorScale(parseInt(d.speakers), 10))
-			// .on('mouseover', function(e) {
-				// console.log('hello');
-			// })
+
+			// Source: https://bl.ocks.org/mjfoster83/7c9bdfd714ab2f2e39dd5c09057a55a0
+			// Add mouse events for the tooltip
+			.on('mouseover', function() { tooltip.style('display', 'block'); })
+			.on('mouseout', function() { tooltip.style('display', 'none'); })
+			.on('mousemove', function(d) {
+				let xPosition = d3.mouse(this)[0];
+				let yPosition = d3.mouse(this)[1];
+				tooltip.attr('transform', `translate(${xPosition}, ${yPosition})`);
+				tooltip.select('text')
+					// .text(() => `Toatale${d.language}`)
+					.text(`${d.language} has ${d.speakers} speakers`)
+					// .attr('transform', `translate(${xPosition}, ${yPosition})`);
+					
+			})
+			// Call the d3.drag function and listen to events
 			.call(d3.drag()
-				.on("start", dragStart)
-				.on("drag", dragging)
-				.on("end", dragEnd))
+				.on('start', dragStart)
+				.on('drag', dragging)
+				.on('end', dragEnd));
 
 	// What to do with unchanged data - How unchanged data should be displayed
 		// chartBars.attr('fill', 'red');
@@ -147,7 +162,7 @@ function sortChart(data, type) {
 		.map(d => d.language))
 		.copy();
 
-	firstGroup.selectAll(".bar")
+	firstGroup.selectAll('.bar')
 			.sort((a, b) => sorting(a.language) - sorting(b.language));
 
 	// Set the transition
@@ -159,14 +174,14 @@ function sortChart(data, type) {
 	function delay(d, i) { return i * 50 };
 
 	// Sorts the bars
-	transition.selectAll(".bar")
+	transition.selectAll('.bar')
 		.delay(delay)
-		.attr("x", d => sorting(d.language) + 100);
+		.attr('x', d => sorting(d.language) + 100);
 
 	// Sorts the labels
-	transition.select(".x.axis")
+	transition.select('.x.axis')
 		.call(d3.axisBottom(xScale))
-		.selectAll("g")
+		.selectAll('g')
 			.delay(delay);
 }
 
@@ -181,18 +196,15 @@ function sortChart(data, type) {
 =================
 */
 
-// Global file to get the origin coordinates to transition to in dragEnd
-let x, y;
-
 function dragStart(d) {
 	// Set the origin coordinates to reset to when releasing.
-	x = this.getAttribute('x');
-	y = this.getAttribute('y');
+	xOrigin = this.getAttribute('x');
+	yOrigin = this.getAttribute('y');
 
 	// Set a class to 'this'
 	d3.select(this)
 		.raise()
-		.classed("isDragging", true);
+		.classed('isDragging', true);
 }
 
 function dragging(d) {
@@ -204,8 +216,8 @@ function dragging(d) {
 	};
 
 	d3.select(this)
-		.attr("x", d.x = getCoors.x)
-		.attr("y", d.y = getCoors.y);
+		.attr('x', d.x = getCoors.x)
+		.attr('y', d.y = getCoors.y);
 }
 
 function dragEnd(d) {
@@ -215,12 +227,30 @@ function dragEnd(d) {
 
 	// Transition back to origin coordinates
 	transition.select('.isDragging')
-		.attr('x', x)
-		.attr('y', y);
+		.attr('x', xOrigin)
+		.attr('y', yOrigin);
 
 	// Remove the class - setting to false
 	d3.select(this)
-		.classed("isDragging", false);
+		.classed('isDragging', false);
 }
+
+ // Prep the tooltip bits, initial display is hidden
+ var tooltip = firstGroup.append('g')
+ .attr('class', 'tooltip')
+ .style('display', 'none');
+	
+tooltip.append('rect')
+ .attr('width', 60)
+ .attr('height', 20)
+ .attr('fill', 'white')
+ .style('opacity', 0.5);
+
+tooltip.append('text')
+ .attr('x', 30)
+ .attr('dy', '1.2em')
+ .style('text-anchor', 'middle')
+ .attr('font-size', '20px')
+ .attr('font-weight', 'bold');
 
 d3.tsv('languages.tsv', renderChart);
